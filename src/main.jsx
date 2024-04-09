@@ -1,10 +1,10 @@
-import Todo from "./todo";
+import Api_fetch from "./Api-fetching";
 
 
 const Main = () => {
     return (
         <div>
-            <Todo />
+            <Api_fetch />
         </div>
     )
 }
