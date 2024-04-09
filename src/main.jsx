@@ -1,10 +1,10 @@
-import Api_fetch from "./Api-fetching";
-
-
+import Age from "./Age";
+import Excuse from "./Excuse_api";
+import Products from "./Products";
 const Main = () => {
     return (
         <div>
-            <Api_fetch />
+           <Products /> 
         </div>
     )
 }
