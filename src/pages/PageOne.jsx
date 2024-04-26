@@ -4,7 +4,7 @@ import { useQuery } from "react-query";
 const PageOne = () => {
   const { data, isLoading, isError, refetch} = useQuery(["product"], () => {
     return Axios.get("http://127.0.0.1:8000/api-products/").then(
-      (response) => response.data[7]
+      (response) => response.data[6]
     );
   });
 
@@ -21,5 +21,6 @@ const PageOne = () => {
     </>
   );
 };
+
 
 export default PageOne;
