@@ -1,16 +1,17 @@
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 const Form = () => {
-  const { register, handleSubmit } = useForm();
-
   const schema = yup.object().shape({
     fullName: yup.string().required(),
     email: yup.string().email().required(),
-    age: yup.number().integer().positive().min(16).max(80),
-    password: yup.string().min(4).max(30).required(),
-    ConfirmPassword: yup.string().oneOf([yup.ref("password")]),
+    // age: yup.number().integer().positive().min(16).max(80).required(),
+    // password: yup.string().min(4).max(30).required(),
+    // ConfirmPassword: yup.string().oneOf([yup.ref("password"), null]).required(),
   });
-
+  const { register, handleSubmit } = useForm({
+    resolver: yupResolver(schema),
+  });
   const onSubmit = (data) => {
     console.log(data);
   };
@@ -27,7 +28,7 @@ const Form = () => {
           placeholder="Enter your email"
           {...register("email")}
         />
-        <input
+        {/* <input
           type="number"
           placeholder="Enter your age"
           {...register("age")}
@@ -41,7 +42,7 @@ const Form = () => {
           type="password"
           placeholder="Confirm password"
           {...register("ConfirmPassword")}
-        />
+        /> */}
         <input type="submit" />
       </form>
     </>
